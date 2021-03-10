@@ -10,7 +10,9 @@ jobs:
       shell: powershell.exe
     steps:
       - checkout
-      - run: nvm list
+      - run: nvm install 12.18.2
+      - run: nvm use 12.18.2
+      - run: nvm alias default v12.18.2
       - run: node -v
 
 workflows:
