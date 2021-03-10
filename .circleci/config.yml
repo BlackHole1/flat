@@ -1,0 +1,17 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.0.0
+
+jobs:
+  install-mac:
+    macos:
+      xcode: 12.0.0
+    steps:
+      - node/install:
+          node-version: "12.18.2"
+
+workflows:
+  build-mac:
+    jobs:
+      - install-mac
