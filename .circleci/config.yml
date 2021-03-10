@@ -13,8 +13,8 @@ jobs:
       - run:
           name: install node
           command: |
-              nvm install 12.18.2
-              nvm use 12.18.2
+              nvm install vv12.18.2
+              nvm use v12.18.2
               node -v
       - run: yarn -v
 
