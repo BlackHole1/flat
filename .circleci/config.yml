@@ -15,8 +15,12 @@ jobs:
           command: |
               nvm install vv12.18.2
               nvm use v12.18.2
+      - run:
+          name: version
+          command: |
+              yarn -v
               node -v
-      - run: yarn -v
+
 
 # jobs:
 #   bar:
