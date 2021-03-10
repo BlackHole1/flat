@@ -10,7 +10,7 @@ jobs:
       shell: powershell.exe
     steps:
       - checkout
-      - run: nvm --help
+      - run: nvm list
       - run: node -v
 
 workflows:
