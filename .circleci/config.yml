@@ -10,10 +10,23 @@ jobs:
       shell: powershell.exe
     steps:
       - checkout
-      - run: nvm install 12.18.2
-      - run: nvm use 12.18.2
-      - run: nvm alias default v12.18.2
-      - run: node -v
+      - run:
+          name: install node
+          command: |
+              nvm install 12.18.2
+              nvm use 12.18.2
+              node -v
+      - run: yarn -v
+
+# jobs:
+#   bar:
+#     machine: true
+#     steps:
+#       - checkout
+#       - run:
+#           command: echo "building"
+#       - run:
+#           command: echo "testing"
 
 workflows:
   build-mac:
