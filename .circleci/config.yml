@@ -16,12 +16,14 @@ jobs:
               nvm install vv12.18.2
               nvm use v12.18.2
               npm install -g yarn
-              sleep 10000
+              
       - run:
-          name: version
+          name: install yarn 
           command: |
-              yarn -v
-              node -v
+              npm install yarn -g
+              yarn config set cache-folder C:\Users\circleci\AppData\Local\yarn\.cache\
+              ls
+              sleep 10000
 
 
 # jobs:
