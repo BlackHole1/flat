@@ -13,28 +13,35 @@ jobs:
       - run:
           name: install node
           command: |
-              nvm install vv12.18.2
-              nvm use v12.18.2
+            nvm install vv12.18.2
+            nvm use v12.18.2
+
+      - restore_cache:
+          keys:
+            - flat-win-{{ .Branch }}-{{ checksum yarn.lock }}
+
       - run:
-          name: install yarn 
+          name: init project
           command: |
-              npm install yarn -g
-              yarn config set cache-folder C:\Users\circleci\AppData\Local\yarn\.cache\
-              ls
-              sleep 10000
+            npm install yarn -g
+            yarn config set cache-folder C:\Users\circleci\AppData\Local\yarn\.cache\
+            yarn install --frozen-lockfile
+          working_directory: C:\Users\circleci\project
 
+      - save_cache:
+          key: flat-win-{{ .Branch }}-{{ checksum yarn.lock }}
+          paths:
+            - project/node_modules
+            - project/src/main-app/node_modules
+            - project/src/renderer-app/node_modules
+            - project/types-pkg/node_modules
 
-# jobs:
-#   bar:
-#     machine: true
-#     steps:
-#       - checkout
-#       - run:
-#           command: echo "building"
-#       - run:
-#           command: echo "testing"
+      - run:
+          name: test
+          command: |
+            sleep 1000
 
 workflows:
-  build-mac:
+  build-win:
     jobs:
       - install-win
