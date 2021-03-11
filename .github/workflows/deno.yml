@@ -30,6 +30,7 @@ jobs:
           architecture: 'x86'
       - run: ls
       - run: npm install yarn -g
-      - run: yarn -v
-      - run: node -v
+      - run: $Env:electron_config_cache=-Join((get-item ($pwd).Path ).parent.name, "cache", "\", "electron")
+      - run: (ls env:)
+      - run: yarn install --frozen-lockfile
       - run: ls
