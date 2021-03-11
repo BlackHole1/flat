@@ -20,11 +20,12 @@ jobs:
 
     strategy:
       matrix:
-        os: [macOS-latest]
+        os: [windows-latest]
 
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install --frozen-lockfile
       - run: ls
+      - run: node -v
+      - run: npm -v
+      - run: nvm -v
+      - run: yarn -v
