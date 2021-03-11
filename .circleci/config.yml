@@ -28,7 +28,7 @@ jobs:
             yarn install --frozen-lockfile
           working_directory: C:\Users\circleci\project
           environment:
-            ELECTRON_CUSTOM_DIR: C:\Users\circleci\AppData\Local\electron\.cache\
+            ELECTRON_CUSTOM_DIR: 'C:\Users\circleci\AppData\Local\electron\.cache'
 
       - save_cache:
           key: flat-win-{{ .Branch }}-{{ checksum "yarn.lock" }}
