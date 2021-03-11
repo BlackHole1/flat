@@ -18,7 +18,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - flat-win-{{ .Branch }}-{{ checksum yarn.lock }}
+            - flat-win-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
       - run:
           name: init project
@@ -27,19 +27,23 @@ jobs:
             yarn config set cache-folder C:\Users\circleci\AppData\Local\yarn\.cache\
             yarn install --frozen-lockfile
           working_directory: C:\Users\circleci\project
+          environment:
+            ELECTRON_CUSTOM_DIR: C:\Users\circleci\AppData\Local\electron\.cache\
 
       - save_cache:
-          key: flat-win-{{ .Branch }}-{{ checksum yarn.lock }}
+          key: flat-win-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - project/node_modules
             - project/src/main-app/node_modules
             - project/src/renderer-app/node_modules
             - project/types-pkg/node_modules
+            - C:\Users\circleci\AppData\Local\electron\.cache\
+            - C:\Users\circleci\AppData\Local\yarn\.cache\
 
       - run:
           name: test
           command: |
-            sleep 1000
+            echo 111
 
 workflows:
   build-win:
