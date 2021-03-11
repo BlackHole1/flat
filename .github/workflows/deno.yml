@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12.18.2'
-          architecture: 'x32'
+          architecture: 'x86'
       - run: ls
       - run: npm install yarn -g
       - run: yarn -v
