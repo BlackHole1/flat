@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ls
-      - run: node -v
-      - run: npm -v
-      - run: nvm -v
+      - run: npm install yarn -g
       - run: yarn -v
+      - run: yarn install --frozen-lockfile
+      - run: ls
