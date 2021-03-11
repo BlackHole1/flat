@@ -11,12 +11,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install node / yarn
+          name: install node
           command: |
               nvm install vv12.18.2
               nvm use v12.18.2
-              npm install -g yarn
-              
       - run:
           name: install yarn 
           command: |
