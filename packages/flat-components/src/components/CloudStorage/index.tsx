@@ -6,6 +6,8 @@ import { CloudStorageFileList } from "./CloudStorageFileList";
 
 export interface CloudStorageProps {}
 
+// ss
+
 export const CloudStorage = observer<CloudStorageProps>(function CloudStorage() {
     // @ts-ignore
     return <CloudStorageFileList files={[]} />;
