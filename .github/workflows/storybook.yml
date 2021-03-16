@@ -139,7 +139,7 @@ jobs:
         run: yarn workspace flat-types build
         if: steps.yarn-cache.outputs.cache-hit == 'true'
 
-      - name: Install and Build
+      - name: Build Storybook
         run: |
           yarn workspace flat-components build-storybook
 
