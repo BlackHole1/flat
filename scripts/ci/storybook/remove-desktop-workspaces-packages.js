@@ -2,6 +2,11 @@
  * only keep the project in the packages directory, because they are not needed to deploy storybook. If not removed, a lot of unnecessary libraries will be installed
  */
 
+if (!process.env.CI) {
+    return;
+}
+console.log("yes!");
+
 const fs = require("fs");
 const path = require("path");
 
@@ -15,4 +20,4 @@ const packageJSONFilePath = path.join(__dirname, "..", "..", "..", "package.json
 
 fs.writeFileSync(packageJSONFilePath, newFileContent, {
     encoding: "utf-8"
-})
+});
