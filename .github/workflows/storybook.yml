@@ -104,7 +104,7 @@ on:
     branches:
       - 'main'
     paths:
-      - './packages/flat-components/src/**'
+      - 'packages/flat-components/src/**'
 
 jobs:
   build-and-deploy:
